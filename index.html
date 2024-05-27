@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- header -->
+    <header class="max-w-6xl mx-auto my-0 h-28 flex items-center justify-between">
+        <!-- logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="src/img/logo.png" alt="">
+            </a>
+        </div>
+        <!-- search input -->
+        <div class="search flex items-center grow max-w-md">
+            <input type="search" name="" id="" class="border border-black max-w-md w-full h-9 rounded-2xl px-4" placeholder="Поиск">
+            <button class="w-9 h-9 rounded-2xl bg-primary ml-3">
+                <svg class="my-0 mx-auto" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </button>
+        </div>
+        <!-- корзина -->
+        <div class="cart">
+            <a href="#!">
+                <img src="src/img/cart-icon.png" alt="">
+            </a>
+        </div>
+    </header>
+    <!-- navigation -->
+    <div class="nav w-full h-12 bg-primary mb-10">
+        <nav class="max-w-6xl h-full mx-auto my-0 flex items-center">
+            <!-- все категории, сделал отдельно чтобы стилизовать удобнее было (хуй знает зачем на самом деле) -->
+            <div class="all h-full bg-black text-white flex items-center max-w-48 w-full justify-center rounded-2xl">
+                <a href="#!">ВСЕ КАТЕГОРИИ</a>
+            </div>
+            <ul class="text-white flex text-sm">
+                <li class="ml-8"><a href="#!">О КОМПАНИИ</a></li>
+                <li class="ml-8"><a href="src/pages/register.html">ЛИЧНЫЙ КАБИНЕТ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main class="max-w-6xl w-full my-0 mx-auto mb-24">
+        <!-- категории -->
+        <div class="main-top flex justify-between mb-10">
+            <div class="category max-w-64 w-full h-auto p-5 border-black rounded border min-h-510px mr-10">
+                <div class="title font-bold mb-10">
+                    <h2>КАТЕГОРИИ</h2>
+                </div>
+                <!-- список категорий -->
+                <ul>
+                    <li class="border-b pb-5 pl-5 mb-8">
+                        <a href="#!">Слабые ПК</a>
+                    </li>
+                    <li class="border-b pb-5 pl-5 mb-8">
+                        <a href="#!">Средние ПК</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-info-block w-full rounded min-h-510px bg-black main-bg bg-no-repeat text-white text-3xl relative font-bold">
+                <h1 class="absolute bottom-10 left-10 text-border">Инновации начинаются здесь.</h1>
+            </div>
+        </div>
+        <div class="img-list">
+            <div class="title font-bold text-lg mb-10">
+                <h2>ПРИМЕРЫ ПК</h2>
+            </div>
+            <ul class="flex flex-wrap justify-between">
+                <li><img src="src/img/img1.png" alt=""></li>
+                <li><img src="src/img/img2.png" alt=""></li>
+                <li><img src="src/img/img3.png" alt=""></li>
+                <li><img src="src/img/img4.png" alt=""></li>
+                <li><img src="src/img/img5.png" alt=""></li>
+                <li><img src="src/img/img6.png" alt=""></li>
+                <li><img src="src/img/img7.png" alt=""></li>
+                <li><img src="src/img/img8.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="goods">
+            <div class="title font-bold text-lg mb-10">
+                <h2>ТОВАРЫ</h2>
+            </div>
+            <div class="goods-list flex justify-between flex-wrap">
+                <div class="goods-block relative">
+                    <div class="max-w-32 w-full my-0 mx-auto ">
+                        <img src="src/img/good1.png" alt="" class="w-full mb-3">
+                        <div class="text-center text-xs font-bold">
+                            <p>ПК ARDOR GAMING EVO X066</p>
+                        </div>
+                        <div class="absolute bottom-5 absolute-center font-bold">
+                            <p>274 999 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-block relative">
+                    <div class="max-w-32 w-full my-0 mx-auto ">
+                        <img src="src/img/good2.png" alt="" class="w-full mb-3">
+                        <div class="text-center text-xs font-bold">
+                            <p>ПК iRU Game 515EC MT</p>
+                        </div>
+                        <div class="absolute bottom-5 absolute-center font-bold">
+                            <p>91 799 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-block relative">
+                    <div class="max-w-32 w-full my-0 mx-auto ">
+                        <img src="src/img/good3.png" alt="" class="w-full mb-3">
+                        <div class="text-center text-xs font-bold">
+                            <p>ПК Raskat Strike 520</p>
+                        </div>
+                        <div class="absolute bottom-5 absolute-center font-bold">
+                            <p>146 499 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-block relative">
+                    <div class="max-w-32 w-full my-0 mx-auto ">
+                        <img src="src/img/good4.png" alt="" class="w-full mb-3">
+                        <div class="text-center text-xs font-bold">
+                            <p>ПК HP OMEN GT22-0005ur</p>
+                        </div>
+                        <div class="absolute bottom-5 absolute-center font-bold">
+                            <p>541 999 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-block relative">
+                    <div class="max-w-32 w-full my-0 mx-auto ">
+                        <img src="src/img/good5.png" alt="" class="w-full mb-3">
+                        <div class="text-center text-xs font-bold">
+                            <p>ПК Acer Predator PO7-650</p>
+                        </div>
+                        <div class="absolute bottom-5 absolute-center font-bold">
+                            <p>409 999 ₽</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="w-full bg-primary py-5 pb-14">
+        <div class="max-w-6xl w-full my-0 mx-auto">
+            <div class="flex justify-between mb-8">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="src/img/logo-footer.png" alt="">
+                    </a>
+                </div>
+                <div class="border-l border-black text-white border-grey pl-5 ">
+                    <div class="title font-bold mb-3">
+                        <h3>Контакты</h3>
+                    </div>
+                    <div class="pl-3 mb-3">
+                        <ul class="leading-loose">
+                            <li>Иркутск, Ленина, 5а</li>
+                            <li>(812) 555-32-161</li>
+                            <li>silicon@shop.ru</li>
+                        </ul>
+                    </div>
+                    <div class="flex items-center text-3xl">
+                        <p>RU</p>
+                        <img src="src/img/ru-icon.png" alt="" class="ml-5">
+                    </div>
+                </div>
+            </div>
+            <hr class="border-grey mb-5">
+            <div class="text-center text-lg text-white">
+                <p>Создавайте, исследуйте, вдохновляйтесь.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
