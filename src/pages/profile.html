@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- header -->
+    <header class="max-w-6xl mx-auto my-0 h-28 flex items-center justify-between">
+        <!-- logo -->
+        <div class="logo">
+            <a href="../../index.html">
+                <img src="../img/logo.png" alt="">
+            </a>
+        </div>
+        <!-- search input -->
+        <div class="search flex items-center grow max-w-md">
+            <input type="search" name="" id="" class="border border-black max-w-md w-full h-9 rounded-2xl px-4" placeholder="Поиск">
+            <button class="w-9 h-9 rounded-2xl bg-primary ml-3">
+                <svg class="my-0 mx-auto" width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </button>
+        </div>
+        <!-- корзина -->
+        <div class="cart">
+            <a href="#!">
+                <img src="../img/cart-icon.png" alt="">
+            </a>
+        </div>
+    </header>
+    <!-- navigatuon -->
+    <div class="nav w-full h-12 bg-primary mb-10">
+        <nav class="max-w-6xl h-full mx-auto my-0 flex items-center">
+            <!-- все категории, сделал отдельно чтобы стилизовать удобнее было (хуй знает зачем на самом деле) -->
+            <div class="all h-full bg-black text-white flex items-center max-w-48 w-full justify-center rounded-2xl">
+                <a href="#!">ВСЕ КАТЕГОРИИ</a>
+            </div>
+            <ul class="text-white flex text-sm">
+                <li class="ml-8"><a href="#!">О КОМПАНИИ</a></li>
+                <li class="ml-8"><a href="src/pages/register.html">ЛИЧНЫЙ КАБИНЕТ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- content -->
+    <main>
+        <div class="max-w-6xl w-full mx-auto my-0 mb-32">
+            <div class="user_info flex mb-14">
+                <div class="avatar">
+                    <img src="../img/jiraf.png" alt="">
+                </div>
+                <!-- инфа о юзере -->
+                <div class="info ml-8">
+                    <div class="font-bold text-2xl mb-5">
+                        <p>Name</p>
+                    </div>
+                    <div class="ml-5 text-xl">
+                        <p class="mb-5">email@mail.ru</p>
+                        <!-- здесь надо будет передать количество товаров в корзине -->
+                        <a href="#!">Товаров в корзине: **</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user_edit">
+                <div class="title text-xl font-bold text-center mb-10">
+                    <h2>РЕДАКТИРОВАТЬ АККАУНТ</h2>
+                </div>
+                <!-- форма для изменения данных юзера -->
+                <form>
+                    <ul class="flex justify-between mb-5">
+                        <li><input class="max-w-64 w-full border-2 border-black h-16 rounded-2xl px-4 text-xl" type="text" placeholder="Имя"></li>
+                        <li><input class="max-w-64 w-full border-2 border-black h-16 rounded-2xl px-4 text-xl" type="text" placeholder="Фамилия"></li>
+                        <li><input class="max-w-64 w-full border-2 border-black h-16 rounded-2xl px-4 text-xl" type="email" placeholder="Электронная почта"></li>
+                        <li><input class="max-w-64 w-full border-2 border-black h-16 rounded-2xl px-4 text-xl" type="password" placeholder="Пароль"></li>
+                    </ul>
+                    <div class="text-right">
+                        <input class="max-w-48 w-full h-14 bg-primary font-bold rounded-2xl" type="submit" value="СОХРАНИТЬ">
+                    </div>
+                </form>   
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="w-full bg-primary py-5 pb-14">
+        <div class="max-w-6xl w-full my-0 mx-auto">
+            <div class="flex justify-between mb-8">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="src/img/logo-footer.png" alt="">
+                    </a>
+                </div>
+                <!-- че ты тут читать собрался? всем похуй на футер -->
+                <div class="border-l border-black text-white border-grey pl-5 ">
+                    <div class="title font-bold mb-3">
+                        <h3>Контакты</h3>
+                    </div>
+                    <div class="pl-3 mb-3">
+                        <ul class="leading-loose">
+                            <li>Иркутск, Ленина, 5а</li>
+                            <li>(812) 555-32-161</li>
+                            <li>silicon@shop.ru</li>
+                        </ul>
+                    </div>
+                    <div class="flex items-center text-3xl">
+                        <p>RU</p>
+                        <img src="src/img/ru-icon.png" alt="" class="ml-5">
+                    </div>
+                </div>
+            </div>
+            <hr class="border-grey mb-5">
+            <div class="text-center text-lg text-white">
+                <p>Создавайте, исследуйте, вдохновляйтесь.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
