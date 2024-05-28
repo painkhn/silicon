@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    @include('components.header')
-    @include('components.navigation')
-    <main class="max-w-6xl w-full my-0 mx-auto mb-24">
+    {{-- @include('components.header') --}}
+    {{-- @include('components.navigation') --}}
+    <main class="max-w-md w-full h-screen flex items-center my-0 mx-auto">
         @yield('content')
     </main>
-    @include('components.footer')
+    {{-- @include('components.footer') --}}
 </body>
 
 </html>
