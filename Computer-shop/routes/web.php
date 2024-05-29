@@ -20,5 +20,6 @@ Route::get('/profile', function () {
 
 Route::post('/profile', [ProfileController::class, 'edit_user'])->name('EditProfile');
 Route::get('/admin', [AdminController::class, 'admin_panel'])->name('Admin')->middleware(IsAdmin::class);
+Route::post('/admin/new_position', [AdminController::class, 'new_position'])->name('NewPosition')->middleware(IsAdmin::class);
 
 require __DIR__.'/auth.php';
