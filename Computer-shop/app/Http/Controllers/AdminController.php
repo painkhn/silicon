@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -24,16 +25,20 @@ class AdminController extends Controller
             'category_id' => 'required|integer',
             'photo' => 'required|image|mimes:jpg,png,jpeg|max:2048|alpha_dash'
         ]);
-        
-        $name = time(). "." . $request->video_file->extension();
-        $destination = 'public/';
-        $path = $request->video_file->storeAs($destination, $name);
-        $video = [
-            'name' => $request->video_name,
-            'description' => $request->video_message,
-            'path' => 'storage/' . $name,
+    
+        $name = time(). "." . $request->photo->extension();
+        $destination = 'public/products';
+        $path = $request->photo->storeAs($destination, $name);
+        $data = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'about' => $request->about,
+            'price' => $request->amount,
             'category_id' => $request->category_id,
-            'user_id' => Auth::user()->id
+            'photo' => 'storage/products/' . $name
         ];
+        Product::create($data);
+
+        return redirect()->back();
     }
 }

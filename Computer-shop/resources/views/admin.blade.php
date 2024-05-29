@@ -52,7 +52,7 @@
                 <div class="title font-bold text-2xl mb-8">
                     <p>Продукт</p>
                 </div>
-                <form action="{{ route('NewPosition') }}" method="POST">
+                <form action="{{ route('NewPosition') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="add text-base">
                         <div class="input mb-5">

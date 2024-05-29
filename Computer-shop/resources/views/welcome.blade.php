@@ -36,66 +36,26 @@
             <li><img src="{{ asset('img/img8.png') }}" alt=""></li>
         </ul>
     </div>
-    <div class="goods">
-        <div class="title font-bold text-lg mb-10">
-            <h2>ТОВАРЫ</h2>
-        </div>
-        <div class="goods-list flex justify-between flex-wrap">
-            <div class="goods-block relative">
-                <div class="max-w-32 w-full my-0 mx-auto ">
-                    <img src="src/img/good1.png" alt="" class="w-full mb-3">
-                    <div class="text-center text-xs font-bold">
-                        <p>ПК ARDOR GAMING EVO X066</p>
-                    </div>
-                    <div class="absolute bottom-5 absolute-center font-bold">
-                        <p>274 999 ₽</p>
-                    </div>
-                </div>
+    @if (count($positions) > 0)
+        <div class="goods">
+            <div class="title font-bold text-lg mb-10">
+                <h2>ТОВАРЫ</h2>
             </div>
-            <div class="goods-block relative">
-                <div class="max-w-32 w-full my-0 mx-auto ">
-                    <img src="src/img/good2.png" alt="" class="w-full mb-3">
-                    <div class="text-center text-xs font-bold">
-                        <p>ПК iRU Game 515EC MT</p>
+            <div class="goods-list flex justify-between flex-wrap">
+                @foreach ($positions as $position)
+                    <div class="goods-block relative">
+                        <div class="max-w-32 w-full my-0 mx-auto ">
+                            <img src="{{ asset($position->photo) }}" alt="" class="w-full mb-3">
+                            <div class="text-center text-xs font-bold">
+                                <p>{{ $position->name }}</p>
+                            </div>
+                            <div class="absolute bottom-5 absolute-center font-bold">
+                                <p>{{ $position->price }} ₽</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="absolute bottom-5 absolute-center font-bold">
-                        <p>91 799 ₽</p>
-                    </div>
-                </div>
-            </div>
-            <div class="goods-block relative">
-                <div class="max-w-32 w-full my-0 mx-auto ">
-                    <img src="src/img/good3.png" alt="" class="w-full mb-3">
-                    <div class="text-center text-xs font-bold">
-                        <p>ПК Raskat Strike 520</p>
-                    </div>
-                    <div class="absolute bottom-5 absolute-center font-bold">
-                        <p>146 499 ₽</p>
-                    </div>
-                </div>
-            </div>
-            <div class="goods-block relative">
-                <div class="max-w-32 w-full my-0 mx-auto ">
-                    <img src="src/img/good4.png" alt="" class="w-full mb-3">
-                    <div class="text-center text-xs font-bold">
-                        <p>ПК HP OMEN GT22-0005ur</p>
-                    </div>
-                    <div class="absolute bottom-5 absolute-center font-bold">
-                        <p>541 999 ₽</p>
-                    </div>
-                </div>
-            </div>
-            <div class="goods-block relative">
-                <div class="max-w-32 w-full my-0 mx-auto ">
-                    <img src="src/img/good5.png" alt="" class="w-full mb-3">
-                    <div class="text-center text-xs font-bold">
-                        <p>ПК Acer Predator PO7-650</p>
-                    </div>
-                    <div class="absolute bottom-5 absolute-center font-bold">
-                        <p>409 999 ₽</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
 @endsection
