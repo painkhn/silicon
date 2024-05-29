@@ -9,7 +9,7 @@
                 </div>
                 <div class="max-w-60 w-full ml-8 relative">
                     <div class="font-bold text-lg mb-8">
-                        <p>ПК HP OMEN GT22-0005ur</p>
+                        <p>{{ $product->name }}</p>
                     </div>
                     <div class="desc text-lg mb-3">
                         <p>Описание:</p>
@@ -17,8 +17,17 @@
                     <div class="desc-text">
                         {{ $product->description }}
                     </div>
-                    <input class="absolute bottom-0 max-w-48 w-full h-12 bg-primary font-bold rounded-2xl" type="button"
-                        value="В КОРЗИНУ">
+                    @if ($basket)
+                        <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
+                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl"
+                                type="button" value="Удалить из корзины">
+                        </a>
+                    @else
+                        <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
+                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl"
+                                type="button" value="В КОРЗИНУ">
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="about max-w-96">

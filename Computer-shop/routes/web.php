@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BasketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsBan;
@@ -22,5 +23,7 @@ Route::get('/admin', [AdminController::class, 'admin_panel'])->name('Admin')->mi
 Route::post('/admin/new_position', [AdminController::class, 'new_position'])->name('NewPosition')->middleware(IsAdmin::class);
 Route::get('/admin/ban/{user_id}', [AdminController::class, 'ban_user'])->name('BanUser')->middleware(IsAdmin::class);
 Route::post('/search', [HomeController::class, 'search'])->name('Search')->middleware(IsBan::class);
+Route::get('/basket', [BasketController::class, 'basket_open'])->name('Basket')->middleware([IsBan::class, 'auth']);
+Route::get('/basket/{tovar_id}', [BasketController::class, 'add_basket'])->name('AddBasket')->middleware([IsBan::class, 'auth']);
 
 require __DIR__.'/auth.php';
