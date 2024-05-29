@@ -11,11 +11,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsBan;
 
 Route::get('/', [HomeController::class, 'index'])->name('index')->middleware(IsBan::class);
-
-Route::get('/profile', function () {
-    return view('profile');
-})->middleware(['auth', IsBan::class])->name('profile');
-
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware(['auth', IsBan::class]);
 Route::get('/product/{product_id}', [ProductController::class, 'open_product'])->name('OpenProduct')->middleware(IsBan::class);
 Route::get('/category/{category_link}', [CategoryController::class, 'open_category'])->name('OpenCategory')->middleware(IsBan::class);
 Route::post('/profile', [ProfileController::class, 'edit_user'])->name('EditProfile')->middleware(['auth', IsBan::class]);

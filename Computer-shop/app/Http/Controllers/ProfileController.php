@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Models\Basket;
 
 class ProfileController extends Controller
 {
@@ -69,5 +70,10 @@ class ProfileController extends Controller
         ]);
 
          return redirect()->back();
+    }
+    public function profile()
+    {
+        $basket = Basket::where('user_id', Auth::user()->id)->get();
+        return view('profile', ['summ' => count($basket)]);    
     }
 }
