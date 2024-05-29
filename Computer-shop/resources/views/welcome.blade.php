@@ -46,7 +46,8 @@
                     <a href="{{ route('OpenProduct', ['product_id' => $position->id]) }}">
                         <div class="goods-block relative">
                             <div class="max-w-36 w-full my-0 mx-auto">
-                                <img src="{{ asset($position->photo) }}" alt="" class="max-w-32 w-full h-32 mb-3 mx-auto my-0">
+                                <img src="{{ asset($position->photo) }}" alt=""
+                                    class="max-w-32 w-full h-32 mb-3 mx-auto my-0">
                                 <div class="text-center text-xs font-bold">
                                     <p>{{ $position->name }}</p>
                                 </div>

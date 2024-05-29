@@ -39,10 +39,17 @@
                                 </div>
                             </div>
                             <div class="btn">
-                                <input class="max-w-32 w-full h-12 border border-black text-black font-bold text-lg"
-                                    type="submit" value="Бан">
-                                <input class="max-w-32 w-full h-12 border border-black text-black font-bold text-lg"
-                                    type="submit" value="Разбан">
+                                @if ($user->ban == 1)
+                                    <a href="{{ route('BanUser', ['user_id' => $user->id]) }}">
+                                        <input class="max-w-32 w-full h-12 border border-black text-black font-bold text-lg"
+                                            type="submit" value="Разбан">
+                                    </a>
+                                @else
+                                    <a href="{{ route('BanUser', ['user_id' => $user->id]) }}">
+                                        <input class="max-w-32 w-full h-12 border border-black text-black font-bold text-lg"
+                                            type="submit" value="Бан">
+                                    </a>
+                                @endif
                             </div>
                         </li>
                     @endforeach

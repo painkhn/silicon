@@ -7,23 +7,20 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\IsBan;
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index')->middleware(IsBan::class);
 
 Route::get('/profile', function () {
     return view('profile');
-})->middleware(['auth'])->name('profile');
+})->middleware(['auth', IsBan::class])->name('profile');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-Route::get('/product/{product_id}', [ProductController::class, 'open_product'])->name('OpenProduct');
-Route::get('/category/{category_link}', [CategoryController::class, 'open_category'])->name('OpenCategory');
-Route::post('/profile', [ProfileController::class, 'edit_user'])->name('EditProfile');
+Route::get('/product/{product_id}', [ProductController::class, 'open_product'])->name('OpenProduct')->middleware(IsBan::class);
+Route::get('/category/{category_link}', [CategoryController::class, 'open_category'])->name('OpenCategory')->middleware(IsBan::class);
+Route::post('/profile', [ProfileController::class, 'edit_user'])->name('EditProfile')->middleware(['auth', IsBan::class]);
 Route::get('/admin', [AdminController::class, 'admin_panel'])->name('Admin')->middleware(IsAdmin::class);
 Route::post('/admin/new_position', [AdminController::class, 'new_position'])->name('NewPosition')->middleware(IsAdmin::class);
+Route::get('/admin/ban/{user_id}', [AdminController::class, 'ban_user'])->name('BanUser')->middleware(IsAdmin::class);
+Route::post('/search', [HomeController::class, 'search'])->name('Search')->middleware(IsBan::class);
 
 require __DIR__.'/auth.php';

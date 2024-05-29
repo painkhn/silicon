@@ -14,4 +14,11 @@ class HomeController extends Controller
         $positions = Product::orderBy('created_at', 'DESC')->get();
         return view('welcome', ['categories' => $categories, 'positions' => $positions]);    
     }
+    
+    public function search(Request $request)
+    {
+        $word = $request->word;
+        $results = Product::where('name', 'like', "%{$word}%")->orWhere('description', 'like', "%{$word}%")->orderBy('id')->get();
+        return view('search', ['results' => $results]);
+    }
 }

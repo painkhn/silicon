@@ -41,4 +41,14 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function ban_user($user_id)
+    {
+        $user = User::where('id', $user_id)->first();
+        $ban = ($user->ban == 1) ? 0 : 1;
+        User::where('id', $user_id)->update([
+            'ban' => $ban
+        ]);
+        return redirect()->back();
+    }
 }
