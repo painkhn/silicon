@@ -11,7 +11,7 @@
             <ul>
                 @foreach ($categories as $category)
                     <li class="border-b pb-5 pl-5 mb-8">
-                        <a href="{{ $category->link }}">{{ $category->name }}</a>
+                        <a href="{{ route('OpenCategory', ['category_link' => $category->link]) }}">{{ $category->name }}</a>
                     </li>
                 @endforeach
             </ul>
@@ -41,19 +41,21 @@
             <div class="title font-bold text-lg mb-10">
                 <h2>ТОВАРЫ</h2>
             </div>
-            <div class="goods-list flex justify-between flex-wrap">
+            <div class="goods-list grid grid-cols-5">
                 @foreach ($positions as $position)
-                    <div class="goods-block relative">
-                        <div class="max-w-32 w-full my-0 mx-auto ">
-                            <img src="{{ asset($position->photo) }}" alt="" class="w-full mb-3">
-                            <div class="text-center text-xs font-bold">
-                                <p>{{ $position->name }}</p>
-                            </div>
-                            <div class="absolute bottom-5 absolute-center font-bold">
-                                <p>{{ $position->price }} ₽</p>
+                    <a href="{{ route('OpenProduct', ['product_id' => $position->id]) }}">
+                        <div class="goods-block relative">
+                            <div class="max-w-36 w-full my-0 mx-auto">
+                                <img src="{{ asset($position->photo) }}" alt="" class="max-w-32 w-full h-32 mb-3 mx-auto my-0">
+                                <div class="text-center text-xs font-bold">
+                                    <p>{{ $position->name }}</p>
+                                </div>
+                                <div class="absolute bottom-5 absolute-center font-bold">
+                                    <p>{{ $position->price }} ₽</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

@@ -21,9 +21,9 @@ class AdminController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'about' => 'required|string',
-            'amount' => 'required|integer',
-            'category_id' => 'required|integer',
-            'photo' => 'required|image|mimes:jpg,png,jpeg|max:2048|alpha_dash'
+            'amount' => 'required',
+            'category_id' => 'required',
+            'photo' => 'required|image|mimes:jpg,png,jpeg|max:2048'
         ]);
     
         $name = time(). "." . $request->photo->extension();

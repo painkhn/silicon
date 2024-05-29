@@ -34,6 +34,8 @@
                             name="email" placeholder="Электронная почта" value="{{ Auth::user()->email }}"></li>
                     <li><input class="max-w-64 w-full border-2 border-black h-16 rounded-2xl px-4 text-xl" type="password" d
                             name="password" placeholder="Пароль"></li>
+                    {{-- <li><input class="max-w-64 w-full border-2 border-black h-16 rounded-2xl px-4 text-xl" type="password" d
+                            name="password" placeholder="Пароль"></li> --}}
                 </ul>
                 <div class="text-right">
                     <input class="max-w-48 w-full h-14 bg-primary font-bold rounded-2xl" type="submit" value="СОХРАНИТЬ">
