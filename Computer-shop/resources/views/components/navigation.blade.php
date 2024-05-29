@@ -5,6 +5,9 @@
         </div>
         <ul class="text-white flex text-sm">
             <li class="ml-8"><a href="{{ route('profile') }}">ЛИЧНЫЙ КАБИНЕТ</a></li>
+            @if (Auth::user() and Auth::user()->is_admin == true)
+                <li class="ml-8"><a href="{{ route('Admin') }}">ПАНЕЛЬ АДМИНИСТРАТОРА</a></li>
+            @endif
         </ul>
     </nav>
 </div>

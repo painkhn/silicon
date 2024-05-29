@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\IsAdmin;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -17,5 +19,6 @@ Route::get('/profile', function () {
 // });
 
 Route::post('/profile', [ProfileController::class, 'edit_user'])->name('EditProfile');
+Route::get('/admin', [AdminController::class, 'admin_panel'])->name('Admin')->middleware(IsAdmin::class);
 
 require __DIR__.'/auth.php';
