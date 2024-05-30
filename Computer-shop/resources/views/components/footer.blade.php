@@ -2,7 +2,7 @@
     <div class="max-w-6xl w-full my-0 mx-auto">
         <div class="flex justify-between mb-8">
             <div class="logo">
-                <a href="index.html">
+                <a href="{{ route('index') }}">
                     <img src="{{ asset('img/logo-footer.png') }}" alt="">
                 </a>
             </div>

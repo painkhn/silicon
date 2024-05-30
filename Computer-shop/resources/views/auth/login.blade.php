@@ -23,7 +23,7 @@
             <a href="{{ route('register') }}">Создать аккаунт</a>
         </div>
         <div class="text-center">
-            <a href="{{ route('register') }}">На главную</a>
+            <a href="{{ route('index') }}">На главную</a>
         </div>
     </form>
 @endsection

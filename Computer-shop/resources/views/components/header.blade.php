@@ -1,7 +1,7 @@
 <header class="max-w-6xl mx-auto my-0 h-28 flex items-center justify-between">
     <!-- logo -->
     <div class="logo">
-        <a href="index.html">
+        <a href="{{ route('index') }}">
             <img src="{{ asset('img/logo.png') }}" alt="">
         </a>
     </div>
