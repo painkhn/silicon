@@ -21,5 +21,6 @@ Route::get('/admin/ban/{user_id}', [AdminController::class, 'ban_user'])->name('
 Route::post('/search', [HomeController::class, 'search'])->name('Search')->middleware(IsBan::class);
 Route::get('/basket', [BasketController::class, 'basket_open'])->name('Basket')->middleware([IsBan::class, 'auth']);
 Route::get('/basket/{tovar_id}', [BasketController::class, 'add_basket'])->name('AddBasket')->middleware([IsBan::class, 'auth']);
+Route::put('/new_avatar', [ProfileController::class, 'avatar'])->name('NewAvatar')->middleware([IsBan::class, 'auth']);
 
 require __DIR__.'/auth.php';

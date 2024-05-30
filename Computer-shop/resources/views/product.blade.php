@@ -19,12 +19,12 @@
                     </div>
                     @if ($basket)
                         <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
-                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl"
+                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
                                 type="button" value="Удалить из корзины">
                         </a>
                     @else
                         <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
-                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl"
+                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
                                 type="button" value="В КОРЗИНУ">
                         </a>
                     @endif

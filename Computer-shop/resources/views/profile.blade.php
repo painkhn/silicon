@@ -4,18 +4,30 @@
     <div class="max-w-6xl w-full mx-auto my-0 mb-32">
         <div class="user_info flex mb-14">
             <div class="avatar">
-                <img src="../img/jiraf.png" alt="">
+                @if (Auth::user()->photo)
+                    <img class="max-w-64 h-64" src="{{ asset(Auth::user()->photo) }}" alt="">
+                @else
+                    <img class="max-w-64 h-64 src="{{ asset('img/jiraf.png') }}" alt="">
+                @endif
             </div>
             <!-- инфа о юзере -->
             <div class="info ml-8">
                 <div class="font-bold text-2xl mb-5">
                     <p>{{ Auth::user()->name }}</p>
                 </div>
-                <div class="ml-5 text-xl">
+                <div class="ml-5 text-xl mb-5">
                     <p class="mb-5">{{ Auth::user()->email }}</p>
                     <!-- здесь надо будет передать количество товаров в корзине -->
                     <a href="#!">Товаров в корзине: {{ $summ }}</a>
                 </div>
+                <form id="avatar-file-form" method="POST" enctype="multipart/form-data" action="{{ route('NewAvatar') }}"
+                    class="flex flex-col">
+                    @csrf
+                    @method('PUT')
+                    <label class="ml-5 mb-2 text-center" for="avatar_change">Сменить аватарку</label>
+                    <input type="file" name="avatar_change" id="avatar_change"
+                        class="max-w-48 w-full h-12 px-3 border-2 rounded border-black custom-file-input ml-5">
+                </form>
             </div>
         </div>
         <div class="user_edit">
@@ -41,4 +53,9 @@
             </form>
         </div>
     </div>
+    <script>
+        document.getElementById('avatar_change').addEventListener('change', function() {
+            document.getElementById('avatar-file-form').submit();
+        });
+    </script>
 @endsection

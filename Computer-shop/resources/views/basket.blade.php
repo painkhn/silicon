@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="grid grid-cols-5-adaptive">
+            <ul class="grid grid-cols-5">
                 @foreach ($products as $product)
                     <a href="{{ route('OpenProduct', ['product_id' => $product->id]) }}">
                         <li>
