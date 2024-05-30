@@ -3,7 +3,7 @@
 @section('content')
     <div class="search-main">
         <div class="max-w-6xl w-full h-auto mx-auto my-0">
-            <ul class="grid grid-cols-5-adaptive">
+            <ul class="grid grid-cols-5">
                 @foreach ($results as $result)
                     <li>
                         <a href="{{ route('OpenProduct', ['product_id' => $result->id]) }}">

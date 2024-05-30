@@ -18,7 +18,7 @@
                 <div class="ml-5 text-xl mb-5">
                     <p class="mb-5">{{ Auth::user()->email }}</p>
                     <!-- здесь надо будет передать количество товаров в корзине -->
-                    <a href="#!">Товаров в корзине: {{ $summ }}</a>
+                    <a href="{{ route('Basket') }}">Товаров в корзине: {{ $summ }}</a>
                 </div>
                 <form id="avatar-file-form" method="POST" enctype="multipart/form-data" action="{{ route('NewAvatar') }}"
                     class="flex flex-col">

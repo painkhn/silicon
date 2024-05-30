@@ -4,7 +4,7 @@
     <div class="panel p-20">
         <div class="user_info flex mb-14">
             <div class="avatar">
-                <img src="../img/jiraf.png" alt="">
+                <img class="max-w-64" src="{{ asset(Auth::user()->photo) }}" alt="">
             </div>
             <!-- инфа о юзере -->
             <div class="info ml-8">
@@ -26,7 +26,7 @@
                         <li class="mb-10">
                             <div class="flex mb-5">
                                 <div class="avatar max-w-32">
-                                    <img class="w-full" src="../img/jiraf.png" alt="">
+                                    <img class="w-full" src="{{ asset($user->photo) }}" alt="">
                                 </div>
                                 <!-- инфа о юзере -->
                                 <div class="info ml-8">

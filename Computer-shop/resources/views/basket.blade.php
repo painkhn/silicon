@@ -5,7 +5,11 @@
         <div class="max-w-6xl w-full mx-auto my-0 mb-20">
             <div class="user_info flex mb-14">
                 <div class="avatar max-w-44">
-                    <img class="w-full" src="../img/jiraf.png" alt="">
+                    @if (Auth::user()->photo)
+                        <img class="max-w-44" src="{{ asset(Auth::user()->photo) }}" alt="">
+                    @else
+                        <img class="max-w-44 src="{{ asset('img/jiraf.png') }}" alt="">
+                    @endif
                 </div>
                 <!-- инфа о юзере -->
                 <div class="info ml-5">
