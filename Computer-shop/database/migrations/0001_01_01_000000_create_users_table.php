@@ -41,7 +41,7 @@ return new class extends Migration
             $table->integer('last_activity')->index();
         });
         DB::table('users')->insert([
-            ['name' => 'admin', 'surname' => 'admin', 'email' => 'admin@mail.ru', 'is_admin' => true, 'password' =>  Hash::make('admin')],
+            ['name' => 'admin', 'surname' => 'admin', 'email' => 'admin@mail.ru', 'is_admin' => true, 'password' =>  Hash::make('123123123')],
         ]);
     }
 
