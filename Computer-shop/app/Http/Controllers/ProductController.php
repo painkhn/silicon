@@ -14,7 +14,6 @@ class ProductController extends Controller
     {
         $basket = Basket::where('user_id', Auth::user()->id)->where('product_id', $product_id)->first();;
         $product = Product::where('id', $product_id)->first();
-        $user = User::where('id', $product->user_id)->first();
-        return view('product', ['product' => $product, 'basket' => $basket, 'user' => $user]);
+        return view('product', ['product' => $product, 'basket' => $basket]);
     }
 }
