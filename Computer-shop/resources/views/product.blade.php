@@ -8,26 +8,33 @@
                     <img class="max-w-96" src="{{ asset($product->photo) }}" alt="">
                 </div>
                 <div class="max-w-60 w-full ml-8 relative">
-                    <div class="font-bold text-lg mb-8">
-                        <p>{{ $product->name }}</p>
-                    </div>
-                    <div class="desc text-lg mb-3">
-                        <p>Описание:</p>
-                    </div>
-                    <div class="desc-text">
-                        {{ $product->description }}
+                    <div class="h-product mb-5">
+                        <div class="font-bold text-lg mb-8">
+                            <p>{{ $product->name }}</p>
+                        </div>
+                        <div class="desc text-lg mb-3">
+                            <p>Описание:</p>
+                        </div>
+                        <div class="desc-text">
+                            {{ $product->description }}
+                        </div>
                     </div>
                     @if ($basket)
                         <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
-                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
+                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
                                 type="button" value="Удалить из корзины">
                         </a>
-                    @else
+                        @else
                         <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
-                            <input class="absolute bottom-0 max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
-                                type="button" value="В КОРЗИНУ">
+                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
+                            type="button" value="В КОРЗИНУ">
                         </a>
-                    @endif
+                        @endif
+                    <!-- КНОПКА УДАЛИТЬ -->
+                    <a href="#!">
+                        <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4 mt-5"
+                            type="button" value="Удалить товар">
+                    </a>
                 </div>
             </div>
             <div class="about max-w-96">

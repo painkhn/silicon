@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Basket;
+use App\Models\User;
 use Auth;
 
 class ProductController extends Controller
@@ -13,6 +14,7 @@ class ProductController extends Controller
     {
         $basket = Basket::where('user_id', Auth::user()->id)->where('product_id', $product_id)->first();;
         $product = Product::where('id', $product_id)->first();
-        return view('product', ['product' => $product, 'basket' => $basket]);
+        $user = User::where('id', $product->user_id)->first();
+        return view('product', ['product' => $product, 'basket' => $basket, 'user' => $user]);
     }
 }
