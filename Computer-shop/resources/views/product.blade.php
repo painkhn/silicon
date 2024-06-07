@@ -31,10 +31,12 @@
                         </a>
                     @endif
                     <!-- КНОПКА УДАЛИТЬ -->
-                    <a href="{{ route('DeletePosition', ['product_id' => $product->id]) }}">
-                        <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4 mt-5" type="button"
-                            value="Удалить товар">
-                    </a>
+                    @if (Auth::user()->is_admin == 1)
+                        <a href="{{ route('DeletePosition', ['product_id' => $product->id]) }}">
+                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4 mt-5" type="button"
+                                value="Удалить товар">
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="about max-w-96">
