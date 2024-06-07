@@ -21,19 +21,19 @@
                     </div>
                     @if ($basket)
                         <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
-                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
-                                type="button" value="Удалить из корзины">
+                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4" type="button"
+                                value="Удалить из корзины">
                         </a>
-                        @else
+                    @else
                         <a href="{{ route('AddBasket', ['tovar_id' => $product->id]) }}">
-                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4"
-                            type="button" value="В КОРЗИНУ">
+                            <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4" type="button"
+                                value="В КОРЗИНУ">
                         </a>
-                        @endif
+                    @endif
                     <!-- КНОПКА УДАЛИТЬ -->
-                    <a href="#!">
-                        <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4 mt-5"
-                            type="button" value="Удалить товар">
+                    <a href="{{ route('DeletePosition', ['product_id' => $product->id]) }}">
+                        <input class=" max-w-48 w-min h-12 bg-primary font-bold rounded-2xl px-4 mt-5" type="button"
+                            value="Удалить товар">
                     </a>
                 </div>
             </div>

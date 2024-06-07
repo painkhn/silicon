@@ -17,6 +17,7 @@ Route::get('/category/{category_link}', [CategoryController::class, 'open_catego
 Route::post('/profile', [ProfileController::class, 'edit_user'])->name('EditProfile')->middleware(['auth', IsBan::class]);
 Route::get('/admin', [AdminController::class, 'admin_panel'])->name('Admin')->middleware(IsAdmin::class);
 Route::post('/admin/new_position', [AdminController::class, 'new_position'])->name('NewPosition')->middleware(IsAdmin::class);
+Route::post('/admin/delete/{product_id}', [AdminController::class, 'delete_product'])->name('DeletePosition')->middleware(IsAdmin::class);
 Route::get('/admin/ban/{user_id}', [AdminController::class, 'ban_user'])->name('BanUser')->middleware(IsAdmin::class);
 Route::post('/search', [HomeController::class, 'search'])->name('Search')->middleware(IsBan::class);
 Route::get('/basket', [BasketController::class, 'basket_open'])->name('Basket')->middleware([IsBan::class, 'auth']);
