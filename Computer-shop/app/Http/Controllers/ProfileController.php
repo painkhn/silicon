@@ -14,87 +14,40 @@ use App\Models\Basket;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
-    {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
-    }
-
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
-    }
-
-    public function edit_user(Request $request) {
+    public function edit_user(Request $request) { // Сохранение настроек пользователя (HTTP-запрос)
         User::where('id', Auth::user()->id)->update([
             'name' => $request->name,
             'surname' => $request->surname,
             'email' => $request->email,
             'password' => Hash::make($request->password)
-        ]);
+        ]); // Обновление таблицы user на значение, которые получили с формы
 
-         return redirect()->back();
+        return redirect()->back(); // Возвращаем назад
     }
-    public function profile()
+    public function profile() // Открытие профиля
     {
-        $basket = Basket::where('user_id', Auth::user()->id)->get();
-        return view('profile', ['summ' => count($basket)]);    
+        $basket = Basket::where('user_id', Auth::user()->id)->get(); //Получаем информацию из корзины
+        return view('profile', ['summ' => count($basket)]); // Отображаем страницу profile и передаем колличество товара
     }
-    public function avatar(Request $request)
+    public function avatar(Request $request) // Изменение аватара(HTTP-запрос)
     {
         $validated = $request->validate([
             'avatar_change' => 'required|image|mimes:jpg,png,jpeg|max:2048'
-        ]);
+        ]); // Валидация фото профиля
         
-        $user = User::where('id', Auth::user()->id)->first();
-        $photoPath = $user->photo;
+        $user = User::where('id', Auth::user()->id)->first(); // Получаем информацию о пользователе
+        $photoPath = $user->photo; // Получаем путь и имя фото профиля
         if (file_exists($photoPath)) {
             unlink($photoPath);
-        }
+        } // Если фото есть, то удаляем его из хранилища
 
-        $name = time(). ".". $request->file('avatar_change')->extension();
-        $destination = 'public/avatars';
-        $path = $request->file('avatar_change')->storeAs($destination, $name);
+        $name = time(). ".". $request->file('avatar_change')->extension(); // Переименовываем файл на unix время и расширение 
+        $destination = 'public/avatars'; // Путь для сохранения файла
+        $path = $request->file('avatar_change')->storeAs($destination, $name); // Сохраняем файл 
         User::where('id', Auth::user()->id)->update([
             'photo' => 'storage/avatars/' . $name
-        ]);
+        ]); // Обновляем информацию о фото профиля
     
-        return redirect()->back();
+        return redirect()->back(); //Возвращаем назад
     }
 }

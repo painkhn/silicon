@@ -9,22 +9,17 @@ use Auth;
 
 class IsBan
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle($request, Closure $next) {
-        if (Auth::user() &&  Auth::user()->ban == 0) {
-            return $next($request);
+    public function handle($request, Closure $next) { //Проверка на бан (Запрос, странца перенаправления)
+        if (Auth::user() &&  Auth::user()->ban == 0) { // Если пользователь зарегистрирован и ban = 0
+            return $next($request); // Если условие выполняется, то отправляем дальше
         }
-        elseif (!Auth::check()) {
-            return $next($request);
+        elseif (!Auth::check()) { //Если не зарегистрирован
+            return $next($request); // Отправляем дальше
         }
-        else{
-            $response = response()->view('auth.login');
-            $response->withCookie(cookie('name', 'value', 60));
-            return $response;
+        else{ // Если пользователь заблокирован
+            $response = response()->view('auth.login'); // Перенаправляем на страницу авторизации
+            $response->withCookie(cookie('name', 'value', 60)); // Задаем данные в куки
+            return $response; // Возвращаем запрос
         }
     }
 }
